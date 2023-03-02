@@ -37,7 +37,7 @@ const options = {
 };
 
 const Header = () => {
-  return <ReactNavbar {...options} />;
+  return <ReactNavbar {...options} onClick={()=>{console.log("onclick navbar")}}/>;
 };
 
 export default Header;

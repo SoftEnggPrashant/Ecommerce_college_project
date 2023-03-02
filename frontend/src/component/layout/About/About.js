@@ -18,7 +18,7 @@ const About = () => {
           <div>
             <Avatar
               style={{ width: "10vmax", height: "10vmax", margin: "2vmax 0" }}
-              src="https://res.cloudinary.com/dfsedjuof/image/upload/v1674332431/avatars/quwww6bk0d55n10t9rje.jpg"
+              src="https://res.cloudinary.com/dfsedjuof/image/upload/v1674332301/avatars/ipoi8x76vdkyxidgjogb.jpg"
               alt="Founder"
             />
             <Typography>PrashantRajpoot</Typography>
