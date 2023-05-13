@@ -9,49 +9,112 @@ import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
 
 const Home = () => {
-  const alert = useAlert();
-  const dispatch = useDispatch();
-  const { loading, error, products } = useSelector((state) => state.products);
+	const alert = useAlert();
+	const dispatch = useDispatch();
+	const { loading, error, products } = useSelector((state) => state.products);
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-    dispatch(getProduct());
-  }, [dispatch, error, alert]);
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+		dispatch(getProduct());
+	}, [dispatch, error, alert]);
 
-  return (
-    <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <MetaData title="ECOMMERCE" />
+	return (
+		<Fragment>
+			{loading ? (
+				<Loader />
+			) : (
+				<Fragment>
+					<MetaData title="ECOMMERCE" />
 
-          <div className="banner">
-            <p>Welcome to Flora</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+					<div className="banner">
+						<p>Welcome to Flora</p>
+						<h1>FIND AMAZING PRODUCTS BELOW</h1>
 
-            <a href="#container">
-              <button>
-                Scroll <CgMouse />
-              </button>
-            </a>
-          </div>
+						<a href="#container">
+							<button>
+								Scroll <CgMouse />
+							</button>
+						</a>
+					</div>
 
-          <h2 className="homeHeading">Featured Products</h2>
+					<h2 className="homeHeading">Featured Products</h2>
 
-          <div className="container" id="container">
-            {products &&
-              products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
-          </div>
-        </Fragment>
-      )}
-    </Fragment>
-  );
+					<div
+						className="container"
+						id="container"
+					>
+						{products &&
+							products.slice(0, 8).map((product) => (
+								<ProductCard
+									key={product._id}
+									product={product}
+								/>
+							))}
+					</div>
+
+					<h2 className="homeHeading">Laptops</h2>
+
+					<div
+						className="container"
+						id="container"
+					>
+						{products &&
+							products
+								.filter(
+									(product) => product.category === "Laptop"
+								)
+								.map((product) => (
+									<ProductCard
+										key={product._id}
+										product={product}
+									/>
+								))}
+					</div>
+
+					<h2 className="homeHeading">SmartPhones</h2>
+
+					<div
+						className="container"
+						id="container"
+					>
+						{products &&
+							products
+								.filter(
+									(product) =>
+										product.category === "SmartPhones"
+								)
+								.map((product) => (
+									<ProductCard
+										key={product._id}
+										product={product}
+									/>
+								))}
+					</div>
+					<h2 className="homeHeading">Sports/Shoes/Footwear</h2>
+
+					<div
+						className="container"
+						id="container"
+					>
+						{products &&
+							products
+								.filter(
+									(product) => product.category === "Sports"
+								)
+								.map((product) => (
+									<ProductCard
+										key={product._id}
+										product={product}
+									/>
+								))}
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 export default Home;

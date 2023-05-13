@@ -46,7 +46,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 85%, 0 100%, 100% 100%);
   max-width: 100%;
 }
 
@@ -79,10 +79,13 @@
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
+  border-radius: 0.5rem;
 }
 
 .productCard > img {
   width: 14vmax;
+  height: 14vmax;
+  object-fit: contain;
 }
 
 .productCard > div {
@@ -104,6 +107,11 @@
   margin-bottom: 0;
 }
 
+.productCard > .description{
+  font-family: "Roboto";
+  font-size: 0.8vmax;
+}
+
 .productCard > span {
   margin: 0.5vmax;
   color: tomato;
@@ -113,8 +121,8 @@
 
 .productCard:hover {
   box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
-
-  transform: translateY(-1vmax);
+  transform: scale(1.2);
+  transition: all 0.8s ease-in;
 }
 
 @media screen and (max-width: 600px) {
