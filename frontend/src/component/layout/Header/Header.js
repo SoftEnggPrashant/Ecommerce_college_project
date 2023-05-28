@@ -125,9 +125,11 @@ const Header = () => {
 						to={"/cart"}
 					>
 						{isAuthenticated ? (
-							<div className="cart-item-count">
-								{cartItems.length > 0 && cartItems.length}
-							</div>
+							cartItems.length > 0 && (
+								<div className="cart-item-count">
+									{cartItems.length}
+								</div>
+							)
 						) : (
 							<></>
 						)}

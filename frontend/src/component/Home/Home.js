@@ -3,6 +3,7 @@ import { CgMouse } from "react-icons/all";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
+import HorizontalScroller from "./HorizontalScroller";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
@@ -47,7 +48,7 @@ const Home = () => {
 						id="container"
 					>
 						{products &&
-							products.slice(0, 8).map((product) => (
+							products.slice(0, 10).map((product) => (
 								<ProductCard
 									key={product._id}
 									product={product}
@@ -56,22 +57,15 @@ const Home = () => {
 					</div>
 
 					<h2 className="homeHeading">Laptops</h2>
-
 					<div
 						className="container"
 						id="container"
 					>
-						{products &&
-							products
-								.filter(
-									(product) => product.category === "Laptop"
-								)
-								.map((product) => (
-									<ProductCard
-										key={product._id}
-										product={product}
-									/>
-								))}
+						<HorizontalScroller
+							products={products.filter(
+								(product) => product.category === "Laptop"
+							)}
+						/>
 					</div>
 
 					<h2 className="homeHeading">SmartPhones</h2>
@@ -80,18 +74,11 @@ const Home = () => {
 						className="container"
 						id="container"
 					>
-						{products &&
-							products
-								.filter(
-									(product) =>
-										product.category === "SmartPhones"
-								)
-								.map((product) => (
-									<ProductCard
-										key={product._id}
-										product={product}
-									/>
-								))}
+						<HorizontalScroller
+							products={products.filter(
+								(product) => product.category === "SmartPhones"
+							)}
+						/>
 					</div>
 					<h2 className="homeHeading">Sports/Shoes/Footwear</h2>
 
@@ -99,17 +86,11 @@ const Home = () => {
 						className="container"
 						id="container"
 					>
-						{products &&
-							products
-								.filter(
-									(product) => product.category === "Sports"
-								)
-								.map((product) => (
-									<ProductCard
-										key={product._id}
-										product={product}
-									/>
-								))}
+						<HorizontalScroller
+							products={products.filter(
+								(product) => product.category === "Footwear"
+							)}
+						/>
 					</div>
 				</Fragment>
 			)}
